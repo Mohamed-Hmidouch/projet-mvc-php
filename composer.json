@@ -1,0 +1,9 @@
+{
+    "name": "youcode/projet_mvc_php",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
