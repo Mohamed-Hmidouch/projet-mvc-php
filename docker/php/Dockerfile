@@ -12,3 +12,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 
 WORKDIR /var/www/html
+
+EXPOSE 80
+
+CMD ["apache2-foreground"]

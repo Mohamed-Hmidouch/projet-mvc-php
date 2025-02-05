@@ -17,8 +17,20 @@ class Router
 
     public function resolve(){
         
-        //request_url//path_info//
         $path = $this->request->getPath();
-        var_dump($path);
+
+        $method = $this->request->getMethod();
+        $callback = $this->routes[$method][$path] ?? false;
+        
+        if($callback === false){
+            return "not found";
+        }
+        if(is_string($callback)){
+           return $this->renderView($callback);
+        }
+        return call_user_func($callback);
+    }
+    public function renderView($view){
+       include_once __DIR__ . "/../views/$view.php";
     }
 }
